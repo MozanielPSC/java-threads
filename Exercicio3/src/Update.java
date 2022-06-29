@@ -5,13 +5,9 @@ public class Update extends Thread{
         this.account = account;
         this.amount = amount;
     }
-    public synchronized void updateBalance(){
-        double total = this.account.getBalance() + this.amount;
-        this.account.setBalance(total);
-        System.out.println("Update "+this.account.getBalance());
-    }
+    
     @Override
-    public synchronized void run(){
-        updateBalance();
+    public void run(){
+        this.account.updateBalance(this.amount);
     }
 }

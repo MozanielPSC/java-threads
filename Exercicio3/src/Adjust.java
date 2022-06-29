@@ -5,14 +5,10 @@ public class Adjust extends Thread {
         this.account = account;
         this.rate = rate;
     }
-    public synchronized void adjustBalance(){
-       double total =  this.account.getBalance() * (double) (1 + this.rate);
-       this.account.setBalance(total);
-       System.out.println("Adjust " + this.account.getBalance());
-    }
+    
     @Override
-    public synchronized void run(){
-        adjustBalance();
+    public void run(){
+        this.account.adjustBalance(rate);
     }
 
 }
