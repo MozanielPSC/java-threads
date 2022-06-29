@@ -1,7 +1,7 @@
 public class Update extends Thread{
-    private static Account account;
-    private static double amount;
-    public Update(Account account,double amount){
+    private final Account account;
+    private final double amount;
+    public Update(final Account account,final double amount){
         this.account = account;
         this.amount = amount;
     }
@@ -11,7 +11,7 @@ public class Update extends Thread{
         System.out.println("Update "+this.account.getBalance());
     }
     @Override
-    public void run(){
+    public synchronized void run(){
         updateBalance();
     }
 }

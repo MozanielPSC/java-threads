@@ -1,7 +1,7 @@
 public class Adjust extends Thread {
-    private static Account account;
-    private static double rate;
-    public Adjust(Account account,double rate){
+    private final Account account;
+    private final double rate;
+    public Adjust(final Account account,final double rate){
         this.account = account;
         this.rate = rate;
     }
@@ -11,7 +11,7 @@ public class Adjust extends Thread {
        System.out.println("Adjust " + this.account.getBalance());
     }
     @Override
-    public void run(){
+    public synchronized void run(){
         adjustBalance();
     }
 

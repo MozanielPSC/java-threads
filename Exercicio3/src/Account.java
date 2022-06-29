@@ -10,7 +10,7 @@ public class Account extends Thread{
         return this.balance;
     }
     @Override
-    public void run(){
+    public synchronized void run(){
         printBalance();
     }
     public synchronized void printBalance(){

@@ -14,6 +14,6 @@ public class App {
        }catch(InterruptedException e){
         
        }
-       System.out.println(mozani.getBalance());
+       System.out.println("Final "+mozani.getBalance());
     }
 }
